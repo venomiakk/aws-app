@@ -73,7 +73,7 @@ button:focus-visible {
   /* padding-top: 15px; */
 }
 
-.nav-bar {
+.menu-bar {
   background-color: #211f24;
   width: 200px;
   height: 97vh;
@@ -86,11 +86,11 @@ button:focus-visible {
   height: 97vh;
   border-radius: 10px;
   margin-left: 5px;
-
 }
 
 .file-card {
   background-color: #1a1a1a;
+  border: 1px solid #1a1a1a;
   margin: 5px;
   padding: 10px;
   border-radius: 10px;
@@ -99,5 +99,8 @@ button:focus-visible {
   height: 120px;
   min-height: 120px;
   display: inline-block;
+}
 
+.file-card:hover {
+  border: 1px solid #646cff;
 }

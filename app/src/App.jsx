@@ -1,11 +1,11 @@
 import "./App.css";
 import FileSpace from "./FileSpace.jsx";
-import NavBar from "./NavBar.jsx";
+import MenuBar from "./MenuBar.jsx";
 
 function App() {
   return (
     <>
-      <NavBar></NavBar>
+      <MenuBar></MenuBar>
       <FileSpace></FileSpace>
     </>
   );
