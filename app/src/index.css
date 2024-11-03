@@ -64,13 +64,13 @@ button:focus-visible {
   }
 }
 
-#root {
+/* #root {
   display: flex;
   min-width: 100vw;
   min-height: 100vh;
   padding: 5px;
   box-sizing: border-box;
-  /* padding-top: 15px; */
+
 }
 
 .menu-bar {
@@ -103,4 +103,4 @@ button:focus-visible {
 
 .file-card:hover {
   border: 1px solid #646cff;
-}
+} */
