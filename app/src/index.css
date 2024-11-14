@@ -64,7 +64,7 @@ button:focus-visible {
   }
 }
 
-/* #root {
+ #root {
   display: flex;
   min-width: 100vw;
   min-height: 100vh;
@@ -103,4 +103,4 @@ button:focus-visible {
 
 .file-card:hover {
   border: 1px solid #646cff;
-} */
+} 
