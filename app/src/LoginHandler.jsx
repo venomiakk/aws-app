@@ -1,5 +1,5 @@
 import { useEffect } from 'react';
-const clientID = import.meta.env.VITE_CLIENT_ID;
+const clientID = import.meta.env.VITE_COGNITO_APPCLIENT_ID;
 const redirectURI = import.meta.env.VITE_REDIRECT_URI;
 const cognitoAuthEndpoint = import.meta.env.VITE_COGNITO_AUTH_ENDPOINT
 
