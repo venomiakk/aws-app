@@ -1,13 +1,12 @@
 import FileCard from "./FileCard";
+// import FileList from "./FileList";
 
 function FileSpace() {
   return (
     <div className="file-space">
       <FileCard></FileCard>
-      <FileCard></FileCard>
-      <FileCard></FileCard>
-      <FileCard></FileCard>
-      <FileCard></FileCard>
+
+      {/* <FileList></FileList> */}
     </div>
   );
 }

@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import axios from "axios";
+const upload_endpoint = import.meta.env.VITE_LAMBDA_S3_UPLOAD;
 
 class UploadFile extends Component {
   state = {
@@ -19,16 +20,10 @@ class UploadFile extends Component {
       this.state.selectedFile.name
     );
     //api call
-    axios
-      .post(
-        // "https://cisg8jt5wi.execute-api.eu-central-1.amazonaws.com/prod/file-upload",
-        "https://r6bvc7sve5urtosoxhkdmkb4fy0ayyqs.lambda-url.eu-central-1.on.aws",
-        formData
-      )
-      .then(() => {
-        this.setState({ selectedFile: null });
-        this.setState({ fileUploadedSuccessfully: true });
-      });
+    axios.post(upload_endpoint, formData).then(() => {
+      this.setState({ selectedFile: null });
+      this.setState({ fileUploadedSuccessfully: true });
+    });
     console.log(formData);
   };
 
