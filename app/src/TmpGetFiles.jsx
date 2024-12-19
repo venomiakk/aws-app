@@ -58,12 +58,15 @@ const TmpGetFiles = () => {
                 console.log("Error fetching files: ", err);
                 reject(err);
               } else {
-                // console.log("Files in S3 bucket:", data.Contents);
-                // Możesz teraz wyświetlić listę plików
-                const files = data.Contents.map((file) => file.Key);
+                const files = data.Contents.map((file) => {
+                  const url = s3.getSignedUrl("getObject", {
+                    Bucket: params.Bucket,
+                    Key: file.Key,
+                  });
+                  return { key: file.Key, url };
+                });
                 console.log("Files:", files);
                 resolve(files);
-                // Wyświetlanie plików w UI, np. w React
               }
             });
           }

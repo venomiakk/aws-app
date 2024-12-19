@@ -24,7 +24,9 @@ function FileSpace() {
         <h1>Files</h1>
         <ul>
           {files.map((file, index) => (
-            <li key={index}>{file}</li>
+            <a href={file.url} key={index}>
+              <li>{file.key}</li>
+            </a>
           ))}
         </ul>
       </div>

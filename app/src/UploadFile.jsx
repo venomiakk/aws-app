@@ -1,6 +1,9 @@
 import React, { Component } from "react";
 import axios from "axios";
+import { v4 as uuid } from "uuid";
+
 const upload_endpoint = import.meta.env.VITE_LAMBDA_S3_UPLOAD;
+const logs_endpoint = import.meta.env.VITE_LOGS_API;
 
 class UploadFile extends Component {
   state = {
@@ -10,6 +13,7 @@ class UploadFile extends Component {
 
   onFileChange = (event) => {
     this.setState({ selectedFile: event.target.files[0] });
+
   };
 
   onFileUpload = () => {
@@ -19,12 +23,26 @@ class UploadFile extends Component {
       this.state.selectedFile,
       this.state.selectedFile.name
     );
+
     //api call
     axios.post(upload_endpoint, formData).then(() => {
+      console.log(this.state.selectedFile);
       this.setState({ selectedFile: null });
       this.setState({ fileUploadedSuccessfully: true });
     });
     console.log(formData);
+
+    //* logs
+    const log_item = {
+      log_id: uuid(),
+      username: "user",
+      action: "file upload",
+      description: `uploaded file: ${this.state.selectedFile.name}`,
+    };
+
+    axios.post(logs_endpoint, log_item).then(() => {
+      console.log(log_item);
+    });
   };
 
   fileData = () => {
