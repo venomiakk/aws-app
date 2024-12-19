@@ -9,11 +9,20 @@ class UploadFile extends Component {
   state = {
     selectedFile: null,
     fileUploadedSuccessfully: false,
+    filename: null,
+    filecontent: null,
   };
 
   onFileChange = (event) => {
     this.setState({ selectedFile: event.target.files[0] });
-
+    console.log(event.target.files[0]);
+    const reader = new FileReader();
+    reader.onload = (e) => {
+      console.log(e.target.result);
+      this.setState({ filecontent: e.target.result });
+    };
+    // reader.readAsArrayBuffer(event.target.files[0]);
+    console.log(this.state.filecontent);
   };
 
   onFileUpload = () => {
@@ -23,6 +32,12 @@ class UploadFile extends Component {
       this.state.selectedFile,
       this.state.selectedFile.name
     );
+
+    const binFile = {
+      filename: this.state.filename,
+      filecontent: this.state.filecontent,
+    };
+    console.log(binFile);
 
     //api call
     axios.post(upload_endpoint, formData).then(() => {
